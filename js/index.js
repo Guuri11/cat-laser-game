@@ -5,7 +5,7 @@ if ("serviceWorker" in navigator) {
         .then(res => console.log("service worker registered"))
         .catch(err => console.log("service worker not registered", err))
     })
-  }
+}
 
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
@@ -46,5 +46,23 @@ function draw() {
     y += dy;
 
 }
+
+const audio = document.getElementById("mouse-squeaking-noise");
+let audioPlayed = false;
+canvas.onclick = () => {
+    if (!audioPlayed) {
+        audio.play();
+        audioPlayed = true;
+    }
+}
+
+  audio.addEventListener("pause", (algo) => {
+    setInterval(() => {
+        audio.play();
+    }, Math.floor(Math.random() * (8000 - 2000 + 1000) + 2000));
+
+    console.log("Se ha pausado la reproducción", algo);
+  });
+  
 
 setInterval(draw, 10);

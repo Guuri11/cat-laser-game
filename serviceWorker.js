@@ -5,6 +5,7 @@ const assets = [
   "/css/index.css",
   "/js/index.js",
   "/images/logo.jpg",
+  "/audio/mouse-squaking-noise.mp3"
 ]
 
 self.addEventListener("install", installEvent => {
